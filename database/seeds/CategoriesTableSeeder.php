@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Faker\Generator as Faker;
+use App\Category;
 
 class CategoriesTableSeeder extends Seeder
 {
@@ -14,8 +14,11 @@ class CategoriesTableSeeder extends Seeder
     {
         $categories = ['katana', 'kodachi', 'nodachi', 'uchigatana', 'wakizashi', 'tsuba'];
 
-        // foreach($categories as $category){
-
-        // }
+        foreach($categories as $category){
+            $new_category = new Category();
+            $new_category->category = $category;
+            $new_category->slug = Category::categorySlug($category);
+            $new_category->save();
+        }
     }
 }
