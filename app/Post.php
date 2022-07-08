@@ -8,7 +8,7 @@ use Illuminate\Support\Str;
 class Post extends Model
 {
     public function category(){
-        return $this->hasMany('App\Post');
+        return $this->belongsTo('App\Category');
     }
 
 

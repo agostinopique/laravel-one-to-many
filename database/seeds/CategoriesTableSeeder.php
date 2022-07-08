@@ -12,7 +12,7 @@ class CategoriesTableSeeder extends Seeder
      */
     public function run()
     {
-        $categories = ['katana', 'kodachi', 'nodachi', 'uchigatana', 'wakizashi', 'tsuba'];
+        $categories = ['Katana', 'Kodachi', 'Nodachi', 'Uchigatana', 'Wakizashi', 'Tsuba'];
 
         foreach($categories as $category){
             $new_category = new Category();

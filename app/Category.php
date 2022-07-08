@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     public function posts(){
-        return $this->belongsTo('App\Category');
+        return $this->hasMany('App\Post');
     }
 
     public static function categorySlug($string){
