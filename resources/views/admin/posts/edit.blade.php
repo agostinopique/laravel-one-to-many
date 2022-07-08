@@ -35,6 +35,19 @@
                 <p class="alert alert-danger mt-3">{{ $message }}</p>
             @enderror
         </div>
+        <div>
+            <label for="select" class="mr-2">Select Category: </label>
+            <select id="select" class="form-select" aria-label="Default select example" name="category_id">
+                <option selected>Select a category</option>
+                @foreach ($categories as $category)
+                    <option value="{{$category->id}}"
+                        @if(old('category_id', $post->category->category) === $post->category->category)
+                            selected
+                        @endif
+                        >{{$category->category}}</option>
+                @endforeach
+            </select>
+        </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>

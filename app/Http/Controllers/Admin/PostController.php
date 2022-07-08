@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\PostRequest;
 use Illuminate\Http\Request;
 use App\Post;
+use App\Category;
 
 class PostController extends Controller
 {
@@ -27,7 +28,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('admin.posts.create');
+        $categories = Category::all();
+        return view('admin.posts.create', compact('categories'));
     }
 
     /**
@@ -39,6 +41,7 @@ class PostController extends Controller
     public function store(PostRequest $request)
     {
         $new_post = $request->all();
+        // dd($new_post);
         $post = new Post();
         $post->fill($new_post);
         $post->slug = Post::generateSlug($new_post['title']);
@@ -70,8 +73,9 @@ class PostController extends Controller
     public function edit($id)
     {
         $post = Post::find($id);
+        $categories = Category::all();
         if($post){
-            return view('admin.posts.edit', compact('post'));
+            return view('admin.posts.edit', compact('post', 'categories'));
         };
         abort(404);
 
