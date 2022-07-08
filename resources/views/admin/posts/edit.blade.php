@@ -40,11 +40,11 @@
             <select id="select" class="form-select" aria-label="Default select example" name="category_id">
                 <option selected>Select a category</option>
                 @foreach ($categories as $category)
-                    <option value="{{$category->id}}"
-                        @if(old('category_id', $post->category->category) === $post->category->category)
-                            selected
-                        @endif
-                        >{{$category->category}}</option>
+                <option value="{{$category->id}}"
+                @if(old('category_id', $post->category->id) == $category->id)
+                    selected
+                @endif
+                >{{$category->category}}</option>
                 @endforeach
             </select>
         </div>

@@ -26,11 +26,23 @@
             </div>
         </div>
 
-
-
         @endforeach
     </div>
     {{ $posts->links() }}
+
+    <div class="mt-5">
+        @foreach($categories as $category)
+            <h2>{{ $category->category }}</h2>
+
+            <ul>
+                @forelse ($category->posts as $post)
+                    <li><a href="#">{{ $post->title }}</a></li>
+                @empty
+                    <li>Nessun post corrispondente questa categoria</li>
+                @endforelse
+            </ul>
+        @endforeach
+    </div>
 </div>
 
 @endsection

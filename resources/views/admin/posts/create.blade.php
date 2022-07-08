@@ -41,13 +41,11 @@
                 @foreach ($categories as $category)
                     <option value="{{$category->id}}"
                         @if(old('category_id') == $category->id)
-
                             selected
                         @endif
                         >{{$category->category}}</option>
-                        @endforeach
-                    </select>
-                    @dump(old('category_id'))
+                @endforeach
+            </select>
         </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>
