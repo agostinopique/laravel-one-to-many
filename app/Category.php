@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
+    public function posts(){
+        return $this->belongsTo('App\Category');
+    }
+
     public static function categorySlug($string){
         $slug = Str::slug($string, '-');
         $new_slug = $slug;
