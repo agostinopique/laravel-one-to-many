@@ -42,8 +42,11 @@ class PostController extends Controller
     public function store(PostRequest $request)
     {
         $new_post = $request->all();
-        // dd($new_post);
+
         $post = new Post();
+        if(!is_numeric($new_post['category_id'])){
+            $post->category_id = null;
+        }
         $post->fill($new_post);
         $post->slug = Post::generateSlug($new_post['title']);
         $post->save();

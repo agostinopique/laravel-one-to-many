@@ -35,6 +35,7 @@
                 <p class="alert alert-danger mt-3">{{ $message }}</p>
             @enderror
         </div>
+
         <div>
             <label for="select" class="mr-2">Select Category: </label>
             <select id="select" class="form-select" aria-label="Default select example" name="category_id">

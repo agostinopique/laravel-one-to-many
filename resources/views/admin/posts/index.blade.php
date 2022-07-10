@@ -15,7 +15,11 @@
             <div class="card-body">
                 <h5 class="card-title">{{ $post->title }}</h5>
                 <h6 class="card-subtitle mb-2 text-muted">{{ $post->description }}</h6>
-                <p>Category: {{ $post->category->category }}</p>
+
+                @if($post->category)
+                    <p>Category: {{ $post->category->category }}</p>
+                @endif
+
                 <a href="{{ route('admin.post.show', $post) }}" class="card-link btn btn-success">Show</a>
                 <a href="{{ route('admin.post.edit', $post) }}" class="card-link btn btn-primary">Edit</a>
                 <form action="{{ route('admin.post.destroy', $post) }}" method="POST" class="d-inline card-link">

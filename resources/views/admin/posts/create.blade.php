@@ -37,7 +37,9 @@
         <div>
             <label for="select" class="mr-2">Select Category: </label>
             <select id="select" class="form-select" aria-label="Default select example" name="category_id">
+
                 <option selected>Select a category</option>
+
                 @foreach ($categories as $category)
                     <option value="{{$category->id}}"
                         @if(old('category_id') == $category->id)
@@ -45,6 +47,7 @@
                         @endif
                         >{{$category->category}}</option>
                 @endforeach
+
             </select>
         </div>
 
