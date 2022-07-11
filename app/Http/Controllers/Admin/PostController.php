@@ -44,9 +44,6 @@ class PostController extends Controller
         $new_post = $request->all();
 
         $post = new Post();
-        if(!is_numeric($new_post['category_id'])){
-            $post->category_id = null;
-        }
         $post->fill($new_post);
         $post->slug = Post::generateSlug($new_post['title']);
         $post->save();

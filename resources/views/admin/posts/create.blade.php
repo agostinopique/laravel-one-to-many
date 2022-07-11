@@ -38,7 +38,7 @@
             <label for="select" class="mr-2">Select Category: </label>
             <select id="select" class="form-select" aria-label="Default select example" name="category_id">
 
-                <option selected>Select a category</option>
+                <option value="" selected>Select a category</option>
 
                 @foreach ($categories as $category)
                     <option value="{{$category->id}}"
